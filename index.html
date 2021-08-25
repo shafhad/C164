@@ -1,0 +1,126 @@
+<!--<!DOCTYPE html>
+<html>
+    <head>
+        <script src = 'https://aframe.io/releases/1.0.4/aframe.min.js'></script>
+        <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+        <script src = 'https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js'></script>
+        <script src = 'https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js'></script>
+        <script src = 'shooter.js'></script>
+        <script src = 'gameObjects.js'></script>
+        <script src = 'playMovement.js'></script>
+        <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+    </head>
+    <body>
+        <a-scene id = 'scene' inspector-plugin-recast>
+            <a-assets>
+                <a-asset-item id = 'shooter' src = './assets/shooter/gun.gltf'></a-asset-item>
+                <a-asset-item id="collider" src='./assets/navmesh.gltf'></a-asset-item>
+                <audio id = 'shoot' src = './sounds/shoot.mp3'></audio>
+                <audio id = 'footStep' src = './sounds/footStep.mp3'></audio>
+            </a-assets>
+
+            <a-entity id= 'environment' environment = 'preset:forest; skyType:atmosphere; lighting:distant'></a-entity>
+
+            <a-entity id = 'sound1' sound = 'src:#shoot; poolSize:2; autoPlay:false; volume:1; loop:false'></a-entity>
+
+            <a-entity id = 'sound2' sound = 'src:#footStep; poolSize:2; autoPlay:false; volume:4; loop:false'></a-entity>
+
+            <a-entity light = 'type:ambient; color:green; intensity:1'></a-entity> -->
+
+            <!-- <a-entity id = 'camera' camera position = '0 1.5 0' wasd-controls look-controls = 'pointerLockEnabled:false'>
+                <a-entity id = 'weapon' gltf-model =  '#shooter' position = '0 -4.5 2' scale = '0.35 1 1' rotation='0 180 0' player-movement></a-entity>
+                <a-cursor></a-cursor>
+            </a-entity> -->
+<!---
+            <a-entity bullets></a-entity>
+
+            <a-plane id = 'ground' width = '200' height = '200' position  = '0 1 0'  rotation = '-90 0 0' color = 'green' visible = 'true'
+            repeat = '5 5' static-body></a-plane>    -->
+            
+             <!--walls-->
+             <!-- <a-box id = 'wall1' color = 'pink' position = '-30 1.5 -30' depth= '1' height = '50' static-body width = '10'></a-box>
+             <a-box id = 'wall2' color = 'purple' position = '-20 1.5 -30' depth= '1' height = '50' static-body width = '10'></a-box>
+             <a-box id = 'wall3' color = 'pink' position = '-10 1.5 -30' depth= '1' height = '50' static-body width = '10'></a-box>
+             <a-box id = 'wall4' color = 'purple' position = '0 1.5 -30' depth= '1' height = '50' static-body width = '10'></a-box>
+             <a-box id = 'wall5' color = 'pink' position = '10 1.5 -30' depth= '1' height = '50' static-body width = '10'></a-box>
+             <a-box id = 'wall6' color = 'purple' position = '20 1.5 -30' depth= '1' height = '50' static-body width = '10'></a-box>
+             <a-box id = 'wall7' color = 'pink' position = '30 1.5 -30' depth= '1' height = '50' static-body width = '10'></a-box>
+
+            <a-box id = 'box1' position = '0 3 -20' color = 'red' width = '4' height = '4' depth = '4' dynamic-body></a-box>
+            <a-box id = 'box2' position = '-6 3 -20' color = 'red' width = '4' height = '4' depth = '4' dynamic-body></a-box>
+            <a-box id = 'box3' position = '6 3 -20' color = 'red' width = '4' height = '4' depth = '4' dynamic-body></a-box>
+            <a-box id = 'box4' position = '-3 7 -20' color = 'blue' width = '4' height = '4' depth = '4' dynamic-body></a-box>
+            <a-box id = 'box5' position = '3 7 -20' color = 'blue' width = '4' height = '4' depth = '4' dynamic-body></a-box>
+            <a-box id = 'box6' position = '0 11 -20' color = 'red' width = '4' height = '4' depth = '4' dynamic-body></a-box> -->
+<!--
+            <a-entity wire-fence boxes></a-entity>
+            <a-entity id="navigation-mesh" gltf-model="#collider" visible="false" nav-mesh>
+            </a-entity>
+           
+        </a-scene>
+    </body>
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Shooting Game in Virtual Reality</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+  <script src="./shooter.js"></script>
+  <script src="./gameObjects.js"></script>
+  <script src="./playerMovement.js"></script>
+
+</head>
+
+<body>
+  <a-scene id="scene" inspector-plugin-recast>
+
+    <!--Assets-->
+    <a-assets>
+        <a-asset-item id = 'shooter' src = './assets/shooter/gun.gltf'></a-asset-item>
+        <a-asset-item id="collider" src='./assets/navmesh.gltf'></a-asset-item>
+        <audio id = 'shoot' src = './sounds/shoot.mp3'></audio>
+        <audio id = 'footStep' src = './sounds/footStep.mp3'></audio>
+    </a-assets>
+
+    <!--A-Frame Environment-->
+    <a-entity id= 'environment' environment = 'preset:forest; skyType:atmosphere; lighting:distant'></a-entity>
+
+    <a-entity id = 'sound1' sound = 'src:#shoot; poolSize:2; autoPlay:false; volume:1; loop:false'></a-entity>
+
+    <a-entity id = 'sound2' sound = 'src:#footStep; poolSize:2; autoPlay:false; volume:4; loop:false'></a-entity>
+
+    <a-entity light = 'type:ambient; color:green; intensity:1'></a-entity> -->
+
+     <a-entity id = 'camera' camera position = '0 1.5 0' wasd-controls look-controls = 'pointerLockEnabled:false'>
+        <a-entity id = 'weapon' gltf-model =  '#shooter' position = '0 -4.5 2' scale = '0.35 1 1' rotation='0 180 0' player-movement></a-entity>
+        <a-cursor></a-cursor>
+    </a-entity>
+
+    <a-plane id = 'ground' width = '200' height = '200' position  = '0 1 0'  rotation = '-90 0 0' color = 'green' visible = 'true'
+    repeat = '5 5' static-body></a-plane>
+
+    <a-entity bullets></a-entity>
+    
+    <a-entity wire-fence boxes></a-entity>
+
+   
+
+  
+    <a-entity id="navigation-mesh" gltf-model="#collider" visible="false" nav-mesh>
+    </a-entity>
+
+
+  </a-scene>
+</body>
+
+</html>
